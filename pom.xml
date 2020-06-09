@@ -5,6 +5,7 @@
     <packaging>pom</packaging>
     <modules>
         <module>eureka</module>
+        <module>system</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>
@@ -21,12 +22,14 @@
     <properties>
         <java.version>1.8</java.version>
         <spring-cloud.version>Hoxton.SR5</spring-cloud.version>
+        <lombok.version>1.16.10</lombok.version>
     </properties>
 
     <dependencies>
         <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-netflix-eureka-server</artifactId>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>${lombok.version}</version>
         </dependency>
     </dependencies>
 
