@@ -17,7 +17,7 @@
                     <a href="index.html" class="navbar-brand">
                         <small>
                             <i class="fa fa-leaf"></i>
-                            Ace Admin
+                           法克在线云点播
                         </small>
                     </a>
                 </div>
