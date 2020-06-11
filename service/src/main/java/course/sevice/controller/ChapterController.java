@@ -1,4 +1,6 @@
-package course.controller;
+package course.sevice.controller;
+
+import course.server.service.ChapterService;
 import course.server.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -6,16 +8,16 @@ import org.springframework.web.bind.annotation.RestController;
 
 /**
  * @author xuyuanfeng
- * @date 2020/6/10
+ * @date 2020/6/11
  **/
 @RestController
-@RequestMapping("/user")
-public class UserController {
+@RequestMapping("/chapter")
+public class ChapterController {
     @Autowired
-    private UserService userService;
-
+    private ChapterService chapterService;
     @RequestMapping("/queryAll")
     public String queryAll() {
-        return userService.queryAll().toString();
+        return chapterService.queryAll().toString();
     }
+
 }
