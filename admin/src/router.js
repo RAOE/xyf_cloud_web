@@ -2,7 +2,8 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Login from './views/login'
 import Admin from './views/admin'
-import Welcome from './views/admin/welcome'
+import Welcome from './views/admin/welcome.vue'
+import Chapter from './views/admin/chapter.vue'
 
 Vue.use(Router)
 export default new Router({
@@ -18,8 +19,10 @@ export default new Router({
         path: '/admin',
         component: Admin
         , children: [{
-            path:'welcome',
-            component:Welcome,
+            path: 'welcome',
+            component: Welcome,}, {
+            path: 'chapter',
+            component: Chapter,
         }]
     }]
 })
