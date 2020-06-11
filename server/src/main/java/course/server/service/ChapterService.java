@@ -19,11 +19,12 @@ public class ChapterService {
     @Autowired
     private ChapterMapper chapterMapper;
 
-    public PageDTO<Chapter> queryAll(PageDTO pageDTO) {
-        PageHelper.startPage(pageDTO.getPage(),pageDTO.getTotal().intValue());
+    public PageDTO<Chapter> queryAll() {
+        PageHelper.startPage(1,2);
         val queryWrapper = Wrappers.<Chapter>lambdaQuery();
         val list =  chapterMapper.selectList(queryWrapper);
-        PageInfo<Chapter> pageInfo = new PageInfo<>(list);
+        PageInfo<Chapter> pageInfo = new PageInfo<Chapter>(list);
+        PageDTO pageDTO = new PageDTO();
         pageDTO.setTotal(pageInfo.getTotal());
         pageDTO.setList(list);
         return pageDTO;

@@ -12,5 +12,6 @@ import java.util.List;
 public class PageDTO<T> {
     private int page;
     private Long total;
+    private Integer size;
     private List<T> list;
 }
