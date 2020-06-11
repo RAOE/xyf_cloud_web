@@ -1,13 +1,14 @@
 package course.server.service;
 
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
+import course.server.dto.PageDTO;
 import course.server.mapper.ChapterMapper;
 import course.server.model.Chapter;
 import lombok.val;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import java.util.List;
 
 /**
  * @author xuyuanfeng
@@ -17,8 +18,14 @@ import java.util.List;
 public class ChapterService {
     @Autowired
     private ChapterMapper chapterMapper;
-    public List<Chapter> queryAll() {
-        val queryWrapper = Wrappers.<Chapter>lambdaQuery().eq(Chapter::getId,"1");
-        return chapterMapper.selectList(queryWrapper);
+
+    public PageDTO<Chapter> queryAll(PageDTO pageDTO) {
+        PageHelper.startPage(pageDTO.getPage(),pageDTO.getTotal().intValue());
+        val queryWrapper = Wrappers.<Chapter>lambdaQuery();
+        val list =  chapterMapper.selectList(queryWrapper);
+        PageInfo<Chapter> pageInfo = new PageInfo<>(list);
+        pageDTO.setTotal(pageInfo.getTotal());
+        pageDTO.setList(list);
+        return pageDTO;
     }
 }

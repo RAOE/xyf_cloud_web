@@ -18,7 +18,7 @@
                 </thead>
 
                 <tbody>
-                <tr v-for="chapter in chapters" v-bind:key="chapter">
+                <tr v-for="chapter in chapters" v-bind:key="chapter.id">
                     <td class="center">
                         <label class="pos-rel">
                             <input type="checkbox" class="ace">
@@ -108,10 +108,11 @@
         methods: {
             list() {
                 let _this = this;
-                _this.$ajax.get("http://localhost:9000/business/chapter/queryAll").then((response) => {
+                _this.$ajax.get("http://localhost:9000/business/chapter/queryAll?page=1&total=2").then((response) => {
                     console.log("查询信息请求发送完成{}");
+                    console.log(response.data);
                     console.log(response.data.list);
-                    _this.chapters = response.data.list;
+                    _this.chapters = response.data.list.list;
                 })
             }
         }
