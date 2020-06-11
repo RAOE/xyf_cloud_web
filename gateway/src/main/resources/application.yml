@@ -10,3 +10,4 @@ eureka:
 zuul:
   routes:
     service: /service/**
+    system: /system/**

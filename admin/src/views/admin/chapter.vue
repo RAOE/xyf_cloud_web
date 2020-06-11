@@ -588,13 +588,7 @@
                                     <div class="space-6"></div>
 
                                     <form>
-                                        <fieldset>
-                                            <tetarea class="width-100" resize="none"
-                                                      placeholder="Type something…"></tetarea>
-                                        </fieldset>
-
                                         <div class="hr hr-dotted"></div>
-
                                         <div class="clearfix">
                                             <label class="pull-left">
                                                 <input type="checkbox" class="ace">
@@ -1010,3 +1004,20 @@
         </div><!-- /.span -->
     </div>
 </template>
+<script>
+    export default {
+        name: "chapter",
+        mounted: function () {
+           let _this = this;
+           _this.list();
+        },
+        methods: {
+            list() {
+                let _this = this;
+                _this.$ajax.get("http://localhost:9002/chapter/queryAll").then(()=>{
+                    console.log("查询信息请求发送完成");
+                })
+            }
+        }
+    }
+</script>

@@ -584,8 +584,6 @@
         mounted: function () {
             $('body').removeClass('class', 'login-layout light-login');
             $('body').attr('class', 'no-skin');
-        },watch:function () {
-            console.log("监听路由的变化");
         }
     }
 </script>
