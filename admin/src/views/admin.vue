@@ -17,7 +17,7 @@
                     <a href="index.html" class="navbar-brand">
                         <small>
                             <i class="fa fa-leaf"></i>
-                           法克在线云点播
+                            法克在线云点播
                         </small>
                     </a>
                 </div>
@@ -289,7 +289,8 @@
 
                         <li class="light-blue dropdown-modal">
                             <a data-toggle="dropdown" href="#" class="dropdown-toggle">
-                                <img class="nav-user-photo" src="../../public/ace/assets/images/avatars/user.jpg" alt="Jason's Photo"/>
+                                <img class="nav-user-photo" src="../../public/ace/assets/images/avatars/user.jpg"
+                                     alt="Jason's Photo"/>
                                 <span class="user-info">
 									<small>Welcome,</small>
 									Jason
@@ -374,7 +375,6 @@
                         <a href="#" class="dropdown-toggle">
                             <i class="menu-icon fa fa-list"></i>
                             <span class="menu-text"> 系统管理 </span>
-
                             <b class="arrow fa fa-angle-down"></b>
                         </a>
 
@@ -384,7 +384,7 @@
                             <li class="">
                                 <a href="tables.html">
                                     <i class="menu-icon fa fa-caret-right"></i>
-                                     用户管理
+                                    用户管理
                                 </a>
 
                                 <b class="arrow"></b>
@@ -401,6 +401,26 @@
                         </ul>
                     </li>
 
+                    <li class="active open">
+                        <a href="#" class="dropdown-toggle">
+                            <i class="menu-icon fa fa-list"></i>
+                            <span class="menu-text"> 业务管理 </span>
+                            <b class="arrow fa fa-angle-down"></b>
+                        </a>
+
+                        <b class="arrow"></b>
+
+                        <ul class="submenu">
+                            <li class="">
+                                <a  href="/admin/chapter">
+                                    <i class="menu-icon fa fa-caret-right"></i>
+                                    大章管理
+                                </a>
+
+                                <b class="arrow"></b>
+                            </li>
+                        </ul>
+                    </li>
 
                 </ul><!-- /.nav-list -->
 
