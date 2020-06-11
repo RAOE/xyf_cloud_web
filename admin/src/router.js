@@ -4,7 +4,6 @@ import Login from './views/login'
 import Admin from './views/admin'
 import Welcome from './views/admin/welcome.vue'
 import Chapter from './views/admin/chapter.vue'
-
 Vue.use(Router)
 export default new Router({
     mode: 'history',
@@ -16,12 +15,15 @@ export default new Router({
         path: '/login',
         component: Login
     }, {
-        path: '/admin',
+        path: '/',
         component: Admin
         , children: [{
+            name: 'welcome',
             path: 'welcome',
-            component: Welcome,}, {
-            path: 'chapter',
+            component: Welcome,
+        }, {
+            name: 'service/chapter',
+            path: 'service/chapter',
             component: Chapter,
         }]
     }]

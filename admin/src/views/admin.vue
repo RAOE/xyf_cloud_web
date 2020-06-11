@@ -412,7 +412,7 @@
 
                         <ul class="submenu">
                             <li class="">
-                                <a  href="/admin/chapter">
+                                <a router-link="service/chapter" href="service/chapter">
                                     <i class="menu-icon fa fa-caret-right"></i>
                                     大章管理
                                 </a>
@@ -584,6 +584,8 @@
         mounted: function () {
             $('body').removeClass('class', 'login-layout light-login');
             $('body').attr('class', 'no-skin');
-        },
+        },watch:function () {
+            console.log("监听路由的变化");
+        }
     }
 </script>
