@@ -5,6 +5,11 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.cloud.netflix.zuul.EnableZuulProxy;
+import org.springframework.context.annotation.Bean;
+import org.springframework.web.cors.CorsConfiguration;
+import org.springframework.web.cors.reactive.CorsWebFilter;
+import org.springframework.web.cors.reactive.UrlBasedCorsConfigurationSource;
+import org.springframework.web.util.pattern.PathPatternParser;
 
 
 /**
@@ -17,6 +22,6 @@ import org.springframework.cloud.netflix.zuul.EnableZuulProxy;
 public class GatewayApplication {
     public static void main(String[] args) {
         SpringApplication.run(GatewayApplication.class, args);
-        log.info("zull  网关模块启动成功");
+        log.info("zuul  网关模块启动成功");
     }
 }

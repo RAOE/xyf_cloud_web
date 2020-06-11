@@ -3,57 +3,33 @@
         <div class="col-xs-12">
             <table id="simple-table" class="table  table-bordered table-hover">
                 <thead>
-                <tr>
+                <tr >
                     <th class="center">
                         <label class="pos-rel">
                             <input type="checkbox" class="ace">
                             <span class="lbl"></span>
                         </label>
                     </th>
-                    <th class="detail-col">Details</th>
-                    <th>Domain</th>
-                    <th>Price</th>
-                    <th class="hidden-480">Clicks</th>
-
-                    <th>
-                        <i class="ace-icon fa fa-clock-o bigger-110 hidden-480"></i>
-                        Update
-                    </th>
+                    <th>编号</th>
+                    <th>课程编号</th>
+                    <th class="hidden-480">课程名称</th>
                     <th class="hidden-480">Status</th>
-
-                    <th></th>
                 </tr>
                 </thead>
 
                 <tbody>
-                <tr>
+                <tr v-for="chapter in chapters" v-bind:key="chapter">
                     <td class="center">
                         <label class="pos-rel">
                             <input type="checkbox" class="ace">
                             <span class="lbl"></span>
                         </label>
                     </td>
-
-                    <td class="center">
-                        <div class="action-buttons">
-                            <a href="#" class="green bigger-140 show-details-btn" title="Show Details">
-                                <i class="ace-icon fa fa-angle-double-down"></i>
-                                <span class="sr-only">Details</span>
-                            </a>
-                        </div>
-                    </td>
-
                     <td>
-                        <a href="#">ace.com</a>
+                        <a href="#">{{chapter.id}}</a>
                     </td>
-                    <td>$45</td>
-                    <td class="hidden-480">3,330</td>
-                    <td>Feb 12</td>
-
-                    <td class="hidden-480">
-                        <span class="label label-sm label-warning">Expiring</span>
-                    </td>
-
+                    <td class="hidden-480">{{chapter.courseId}}</td>
+                    <td>{{chapter.name}}</td>
                     <td>
                         <div class="hidden-sm hidden-xs btn-group">
                             <button class="btn btn-xs btn-success">
@@ -132,10 +108,10 @@
         methods: {
             list() {
                 let _this = this;
-                _this.$ajax.get("http://localhost:9002/chapter/queryAll").then((response) => {
-                    console.log("查询信息请求发送完成{}",response);
-                    _this.chapters = response;
-                    console.log(_this.chapters);
+                _this.$ajax.get("http://localhost:9000/business/chapter/queryAll").then((response) => {
+                    console.log("查询信息请求发送完成{}");
+                    console.log(response.data.list);
+                    _this.chapters = response.data.list;
                 })
             }
         }
