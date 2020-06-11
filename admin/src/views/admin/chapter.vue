@@ -589,8 +589,8 @@
 
                                     <form>
                                         <fieldset>
-                                            <textarea class="width-100" resize="none"
-                                                      placeholder="Type something…"></textarea>
+                                            <tetarea class="width-100" resize="none"
+                                                      placeholder="Type something…"></tetarea>
                                         </fieldset>
 
                                         <div class="hr hr-dotted"></div>
