@@ -111,7 +111,7 @@
             list(page) {
                 let paramData = {
                     page: page,
-                    size: 2
+                    size: 3
                 };
                 console.log("执行了")
                 let _this = this;

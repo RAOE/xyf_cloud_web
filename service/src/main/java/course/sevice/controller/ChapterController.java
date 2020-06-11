@@ -27,7 +27,7 @@ public class ChapterController {
         if (page == null || page == 0 || size == null || size == 0) {
             throw new RuntimeException("页码不正确");
         }
-        resultMap.put("list", chapterService.queryAll());
+        resultMap.put("list", chapterService.queryAll(page,size));
         return resultMap;
     }
 }
