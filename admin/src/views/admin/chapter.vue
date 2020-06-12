@@ -105,13 +105,13 @@
         },
         mounted: function () {
             let _this = this;
-            _this.list(2);
+            _this.list(1);
         },
         methods: {
             list(page) {
                 let paramData = {
                     page: page,
-                    size: 3
+                    size: 4
                 };
                 console.log("执行了")
                 let _this = this;
