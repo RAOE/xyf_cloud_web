@@ -5,7 +5,7 @@
 
 #### 软件架构
 软件架构说明
-<image src="../master/doc/constrator.png"/>
+<image src="../master/doc/constractor.png"/>
 #### 安装教程
 0.  maven install course(root) 
 1.  启动eureka
