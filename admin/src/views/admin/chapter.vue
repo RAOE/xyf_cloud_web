@@ -1,9 +1,11 @@
 <template>
     <div>
-        <button v-on:click="list(2)" class="btn btn-white btn-default btn-round">
-            <i class="ace-icon fa fa-refresh"></i>
-            刷新
-        </button>
+        <p>
+            <button v-on:click="list(3)" class="btn btn-white btn-success btn-round">
+                <i class="ace-icon fa fa-refresh"></i>
+                刷新
+            </button>
+        </p>
         <!--        <pagination ref="pagination" v-bind:list="list" v-bind:itemCount="8"></pagination>-->
 
         <div class="row">
