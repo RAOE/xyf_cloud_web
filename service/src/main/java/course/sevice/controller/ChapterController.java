@@ -2,6 +2,7 @@ package course.sevice.controller;
 
 import com.github.pagehelper.util.StringUtil;
 import com.google.common.collect.Maps;
+import course.server.model.Chapter;
 import course.server.service.ChapterService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -27,7 +28,14 @@ public class ChapterController {
         if (page == null || page == 0 || size == null || size == 0) {
             throw new RuntimeException("页码不正确");
         }
-        resultMap.put("list", chapterService.queryAll(page,size));
+        resultMap.put("list", chapterService.queryAll(page, size));
         return resultMap;
     }
+
+    @PostMapping(value = "/save")
+    public void save(Chapter chapter) {
+        chapterService.save(chapter);
+    }
+
+
 }

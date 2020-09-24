@@ -9,6 +9,7 @@ import course.server.model.Chapter;
 import lombok.val;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 /**
  * @author xuyuanfeng
@@ -31,5 +32,10 @@ public class ChapterService {
         pageDTO.setSize(size);
         pageDTO.setTotal(pageInfo.getTotal());
         return pageDTO;
+    }
+
+    @Transactional(rollbackFor = Exception.class)
+    public void save(Chapter chapter) {
+        chapterMapper.insert(chapter);
     }
 }

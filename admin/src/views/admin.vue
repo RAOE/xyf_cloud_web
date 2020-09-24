@@ -573,16 +573,17 @@
         </div><!-- /.main-container -->
     </div>
 </template>
-
 <script src="<%= BASE_URL %>ace/assets/js/jquery-2.1.4.min.js"></script>
 <script src="<%= BASE_URL %>ace/assets/js/jquery-1.11.3.min.js"></script>
 <script>
+
     export default {
         name: 'admin',
         mounted: function () {
             let _this = this;
             $('body').removeClass('class', 'login-layout light-login');
             $('body').attr('class', 'no-skin');
+            $.getScript('/ace/assets/js/bootstrap.min.js');
             _this.activeSidebar(_this.$route.name.replace("/", "-") + "_sidebar");
         },
         watch: {
