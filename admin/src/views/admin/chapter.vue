@@ -98,7 +98,10 @@
     </div>
 </template>
 <script>
+    import Pagination from "../../compoments/pagination"
+
     export default {
+        components: {pagination},
         name: "chapter",
         data: function () {
             return {
