@@ -8,9 +8,8 @@
                             <h1>
                                 <i class="ace-icon fa fa-leaf green"></i>
                                 <span class="red">Ace</span>
-                                <span class="white" id="id-text2">我的应用</span>
+                                <span class="white" id="id-text2">登陆</span>
                             </h1>
-                            <h4 class="blue" id="id-company-text">&copy; 下一个世界</h4>
                         </div>
 
                         <div class="space-6"></div>
@@ -19,11 +18,6 @@
                             <div id="login-box" class="login-box visible widget-box no-border">
                                 <div class="widget-body">
                                     <div class="widget-main">
-                                        <h4 class="header blue lighter bigger">
-                                            <i class="ace-icon fa fa-coffee green"></i>
-                                            请输入你的账号密码
-                                        </h4>
-
                                         <div class="space-6"></div>
 
                                         <form>
@@ -63,25 +57,8 @@
                                             </fieldset>
                                         </form>
 
-                                        <div class="social-or-login center">
-                                            <span class="bigger-110">其他登陆方式</span>
-                                        </div>
 
                                         <div class="space-6"></div>
-
-                                        <div class="social-login center">
-                                            <a class="btn btn-primary">
-                                                <i class="ace-icon fa fa-facebook"></i>
-                                            </a>
-
-                                            <a class="btn btn-info">
-                                                <i class="ace-icon fa fa-twitter"></i>
-                                            </a>
-
-                                            <a class="btn btn-danger">
-                                                <i class="ace-icon fa fa-google-plus"></i>
-                                            </a>
-                                        </div>
                                     </div><!-- /.widget-main -->
                                 </div><!-- /.widget-body -->
                             </div><!-- /.login-box -->
