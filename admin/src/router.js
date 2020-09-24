@@ -24,8 +24,8 @@ export default new Router(
                 path: 'welcome',
                 component: Welcome,
             }, {
-                name: 'service/chapter',
-                path: 'service/chapter',
+                name: 'business/chapter',
+                path: 'business/chapter',
                 component: Chapter,
             }]
         }]

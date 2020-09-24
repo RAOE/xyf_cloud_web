@@ -363,43 +363,43 @@
                 </div><!-- /.sidebar-shortcuts -->
 
                 <ul class="nav nav-list">
-                    <li class="">
-                        <a href="index.html">
+                    <li class="" id="welcome-sidebar">
+                        <a router-link="/welcome" href="/welcome">
                             <i class="menu-icon fa fa-tachometer"></i>
                             <span class="menu-text"> 欢迎 </span>
                         </a>
 
                         <b class="arrow"></b>
                     </li>
-                    <li class="active open">
-                        <a href="#" class="dropdown-toggle">
-                            <i class="menu-icon fa fa-list"></i>
-                            <span class="menu-text"> 系统管理 </span>
-                            <b class="arrow fa fa-angle-down"></b>
-                        </a>
+                    <!--                    <li class="active open">-->
+                    <!--                        <a href="#" class="dropdown-toggle">-->
+                    <!--                            <i class="menu-icon fa fa-list"></i>-->
+                    <!--                            <span class="menu-text"> 系统管理 </span>-->
+                    <!--                            <b class="arrow fa fa-angle-down"></b>-->
+                    <!--                        </a>-->
 
-                        <b class="arrow"></b>
+                    <!--                        <b class="arrow"></b>-->
 
-                        <ul class="submenu">
-                            <li class="">
-                                <a href="tables.html">
-                                    <i class="menu-icon fa fa-caret-right"></i>
-                                    用户管理
-                                </a>
+                    <!--                        <ul class="submenu">-->
+                    <!--                            <li class="">-->
+                    <!--                                <a href="tables.html">-->
+                    <!--                                    <i class="menu-icon fa fa-caret-right"></i>-->
+                    <!--                                    用户管理-->
+                    <!--                                </a>-->
 
-                                <b class="arrow"></b>
-                            </li>
+                    <!--                                <b class="arrow"></b>-->
+                    <!--                            </li>-->
 
-                            <li class="">
-                                <a href="jqgrid.html">
-                                    <i class="menu-icon fa fa-caret-right"></i>
-                                    权限管理
-                                </a>
+                    <!--                            <li class="">-->
+                    <!--                                <a href="jqgrid.html">-->
+                    <!--                                    <i class="menu-icon fa fa-caret-right"></i>-->
+                    <!--                                    权限管理-->
+                    <!--                                </a>-->
 
-                                <b class="arrow"></b>
-                            </li>
-                        </ul>
-                    </li>
+                    <!--                                <b class="arrow"></b>-->
+                    <!--                            </li>-->
+                    <!--                        </ul>-->
+                    <!--                    </li>-->
 
                     <li class="active open">
                         <a href="#" class="dropdown-toggle">
@@ -411,12 +411,11 @@
                         <b class="arrow"></b>
 
                         <ul class="submenu">
-                            <li class="">
-                                <a router-link="service/chapter" href="service/chapter">
+                            <li class="active" id="business-chapter-sidebar">
+                                <a router-link="business/chapter" href="business/chapter">
                                     <i class="menu-icon fa fa-caret-right"></i>
                                     大章管理
                                 </a>
-
                                 <b class="arrow"></b>
                             </li>
                         </ul>
@@ -436,13 +435,12 @@
                         <ul class="breadcrumb">
                             <li>
                                 <i class="ace-icon fa fa-home home-icon"></i>
-                                <a href="#">Home</a>
+                                <a href="#">首页</a>
                             </li>
 
                             <li>
-                                <a href="#">Other Pages</a>
+                                <a href="#">主页</a>
                             </li>
-                            <li class="active">Blank Page</li>
                         </ul><!-- /.breadcrumb -->
 
                         <div class="nav-search" id="nav-search">
@@ -584,6 +582,19 @@
         mounted: function () {
             $('body').removeClass('class', 'login-layout light-login');
             $('body').attr('class', 'no-skin');
+        },
+        methods: {
+            activeSidebar: function (id) {
+                $("#" + id).siblings().removeClass("active");
+                $("#" + id).siblings().find("li").removeClass("active");
+                $("#" + id).addClass("active");
+
+                let parentLi = $("#" + id).parents("li");
+                if (parentLi) {
+                    parentLi.siblings().removeClass("open active");
+                    parentLi.addClass("open active");
+                }
+            }
         }
     }
 </script>

@@ -104,6 +104,7 @@
             }
         },
         mounted: function () {
+            this.$parent.activeSidebar("business-chapter-sidebar");
             let _this = this;
             _this.list(1);
         },
