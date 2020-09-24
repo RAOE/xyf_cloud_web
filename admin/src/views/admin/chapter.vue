@@ -6,7 +6,7 @@
                 刷新
             </button>
         </p>
-        <pagination ref="pagination" v-bind:list="list" v-bind:item-count="6"></pagination>
+        <pagination ref="pagination" v-bind:list="list" v-bind:item-count="8"></pagination>
         <div class="row">
             <div class="col-xs-12">
                 <table id="simple-table" class="table  table-bordered table-hover">
@@ -108,15 +108,14 @@
             }
         },
         mounted: function () {
-            this.$parent.activeSidebar("business-chapter-sidebar");
             let _this = this;
+            _this.$refs.pagination.size = 1;
+            _this.$parent.activeSidebar("business-chapter-sidebar");
             _this.list(1);
         },
         methods: {
-
             list(page) {
                 let _this = this;
-                _this.$refs.pagination.size = 2;
                 let paramData = {
                     page: page,
                     size: _this.$refs.pagination.size,
@@ -128,8 +127,9 @@
                     console.log(response.data);
                     console.log(response.data.list);
                     _this.chapters = response.data.list.list;
-                    _this.$refs.pagination.render(page, response.data.total);
-
+                    console.log("result:", page);
+                    console.log("total:",response.data.total);
+                    _this.$refs.pagination.render(page, response.data.list.total);
                 })
             }
         }
