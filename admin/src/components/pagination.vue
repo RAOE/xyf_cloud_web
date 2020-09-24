@@ -10,7 +10,7 @@
             v-on:click="selectPage(page - 1)">
       上一页
     </button>
-    <button v-for="p in pages" v-bind:id="'page-' + p" 
+    <button v-for="p in pages" v-bind:key="'page-' + p"
             type="button" class="btn btn-default btn-white btn-round"
             v-bind:class="{'btn-primary active':page == p}" 
             v-on:click="selectPage(p)">

@@ -577,10 +577,7 @@
 <script src="<%= BASE_URL %>ace/assets/js/jquery-2.1.4.min.js"></script>
 <script src="<%= BASE_URL %>ace/assets/js/jquery-1.11.3.min.js"></script>
 <script>
-    import Pagination from "../../compoments/pagination"
-
     export default {
-        components:{Pagination},
         name: 'admin',
         mounted: function () {
             let _this = this;

@@ -21,7 +21,7 @@ public class ChapterService {
 
     public PageDTO<Chapter> queryAll(Integer page, Integer size) {
         //测试
-        PageHelper.startPage(page, 1);
+        PageHelper.startPage(page, size);
         val queryWrapper = Wrappers.<Chapter>lambdaQuery();
         val list = chapterMapper.selectList(queryWrapper);
         PageInfo<Chapter> pageInfo = new PageInfo<Chapter>(list);

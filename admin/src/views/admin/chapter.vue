@@ -1,13 +1,12 @@
 <template>
     <div>
         <p>
-            <button v-on:click="list(3)" class="btn btn-white btn-success btn-round">
+            <button v-on:click="list(2)" class="btn btn-white btn-success btn-round">
                 <i class="ace-icon fa fa-refresh"></i>
                 刷新
             </button>
         </p>
-        <!--        <pagination ref="pagination" v-bind:list="list" v-bind:itemCount="8"></pagination>-->
-
+        <pagination ref="pagination" v-bind:list="list" v-bind:item-count="6"></pagination>
         <div class="row">
             <div class="col-xs-12">
                 <table id="simple-table" class="table  table-bordered table-hover">
@@ -98,10 +97,10 @@
     </div>
 </template>
 <script>
-    import Pagination from "../../compoments/pagination"
+    import Pagination from "../../components/pagination"
 
     export default {
-        components: {pagination},
+        components: {Pagination},
         name: "chapter",
         data: function () {
             return {
@@ -114,18 +113,23 @@
             _this.list(1);
         },
         methods: {
+
             list(page) {
+                let _this = this;
+                _this.$refs.pagination.size = 2;
                 let paramData = {
                     page: page,
-                    size: 4
+                    size: _this.$refs.pagination.size,
                 };
                 console.log("执行了")
-                let _this = this;
+
                 _this.$ajax.post('http://localhost:9000/business/chapter/queryAll', _this.$qs.stringify(paramData)).then((response) => {
                     console.log("查询信息请求发送完成{}");
                     console.log(response.data);
                     console.log(response.data.list);
                     _this.chapters = response.data.list.list;
+                    _this.$refs.pagination.render(page, response.data.total);
+
                 })
             }
         }
