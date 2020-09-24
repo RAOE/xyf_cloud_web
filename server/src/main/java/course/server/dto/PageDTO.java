@@ -10,7 +10,7 @@ import java.util.List;
  **/
 @Data
 public class PageDTO<T> {
-    private int page;
+    private Integer page;
     private Long total;
     private Integer size;
     private List<T> list;

@@ -580,8 +580,23 @@
     export default {
         name: 'admin',
         mounted: function () {
+            let _this = this;
             $('body').removeClass('class', 'login-layout light-login');
             $('body').attr('class', 'no-skin');
+            _this.activeSidebar(_this.$route.name.replace("/", "-") + "_sidebar");
+        },
+        watch: {
+            $route: {
+                handler: function (val, oldVal) {
+                    console.log("watch .....{},{}", val, oldVal)
+                    let _this = this;
+                    //页面被load后执行
+                    this.$nextTick(function () {
+                        console.log(_this.$route.name.replace("/", "-"));
+                        _this.activeSidebar(_this.$route.name.replace("/", "-") + "_sidebar");
+                    })
+                }
+            }
         },
         methods: {
             activeSidebar: function (id) {
