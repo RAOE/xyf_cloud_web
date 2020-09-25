@@ -34,7 +34,7 @@ public class ChapterController {
     }
 
     @PostMapping(value = "/save")
-    public void save(@RequestBody Chapter chapter) {
+    public void save(Chapter chapter) {
         chapterService.save(chapter);
     }
 }

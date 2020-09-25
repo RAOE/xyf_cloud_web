@@ -179,7 +179,11 @@
             save(page) {
                 let _this = this;
                 console.log(_this.chapter);
-                _this.$ajax.post("http://localhost:9000/business/chapter/save", _this.chapter).then((response) => {
+                let paramData = {
+                    courseId:_this.chapter.courseId,
+                    name:_this.chapter.name
+                }
+                _this.$ajax.post("http://localhost:9000/business/chapter/save", _this.$qs.stringify(paramData)).then((response) => {
                     console.log("保存成功");
                 })
             }
