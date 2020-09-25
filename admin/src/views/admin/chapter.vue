@@ -27,7 +27,7 @@
                         <th>编号</th>
                         <th>课程编号</th>
                         <th class="hidden-480">课程名称</th>
-                        <th class="hidden-480">Status</th>
+                        <th class="hidden-480">操作</th>
                     </tr>
                     </thead>
 
@@ -46,21 +46,14 @@
                         <td>{{chapter.name}}</td>
                         <td>
                             <div class="hidden-sm hidden-xs btn-group">
-                                <button class="btn btn-xs btn-success">
-                                    <i class="ace-icon fa fa-check bigger-120"></i>
-                                </button>
-
-                                <button class="btn btn-xs btn-info">
+                                <button class="btn btn-xs btn-info" v-on:click="edit(chapter)">
                                     <i class="ace-icon fa fa-pencil bigger-120"></i>
                                 </button>
 
-                                <button class="btn btn-xs btn-danger">
+                                <button class="btn btn-xs btn-danger" v-on:click="deleteById(chapter.id)">
                                     <i class="ace-icon fa fa-trash-o bigger-120"></i>
                                 </button>
 
-                                <button class="btn btn-xs btn-warning">
-                                    <i class="ace-icon fa fa-flag bigger-120"></i>
-                                </button>
                             </div>
 
                             <div class="hidden-md hidden-lg">
@@ -149,7 +142,7 @@
         },
         mounted: function () {
             let _this = this;
-            _this.$refs.pagination.size = 1;
+            _this.$refs.pagination.size = 10;
             _this.$parent.activeSidebar("business-chapter-sidebar");
             _this.list(1);
         },
@@ -176,15 +169,35 @@
                 _this.chapter = {};
                 $("#form-modal").modal("show");
             },
+            deleteById(id) {
+                console.log("开始执行删除操作");
+                let _this = this;
+                let paramData = {
+                    id: id,
+                }
+                _this.$ajax.post("http://localhost:9000/business/chapter/delete", _this.$qs.stringify(paramData)).then((response) => {
+                    console.log("删除完成");
+                    _this.list(1);
+                })
+            },
+            edit(chapter) {
+                let _this = this;
+                _this.chapter = $.extend({}, chapter);
+                $("#form-modal").modal("show");
+            },
             save(page) {
                 let _this = this;
                 console.log(_this.chapter);
                 let paramData = {
-                    courseId:_this.chapter.courseId,
-                    name:_this.chapter.name
+                    id: _this.chapter.id,
+                    courseId: _this.chapter.courseId,
+                    name: _this.chapter.name
                 }
                 _this.$ajax.post("http://localhost:9000/business/chapter/save", _this.$qs.stringify(paramData)).then((response) => {
                     console.log("保存成功");
+                    $("#form-modal").modal("hide");
+                    console.log("page:" + page);
+                    _this.list(1);
                 })
             }
         }

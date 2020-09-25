@@ -1,5 +1,6 @@
 package course.server.service;
 
+import com.baomidou.mybatisplus.core.toolkit.StringUtils;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
@@ -36,6 +37,20 @@ public class ChapterService {
 
     @Transactional(rollbackFor = Exception.class)
     public void save(Chapter chapter) {
-        chapterMapper.insert(chapter);
+        if (!StringUtils.isEmpty(chapter.getId())) {
+            update(chapter);
+        } else {
+            chapterMapper.insert(chapter);
+        }
+    }
+
+    @Transactional(rollbackFor = Exception.class)
+    public void update(Chapter chapter) {
+        chapterMapper.updateById(chapter);
+    }
+
+    @Transactional(rollbackFor = Exception.class)
+    public void deleteById(String id) {
+        chapterMapper.deleteById(id);
     }
 }

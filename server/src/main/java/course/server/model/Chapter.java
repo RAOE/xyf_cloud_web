@@ -11,7 +11,7 @@ import lombok.Data;
 @Data
 public class Chapter {
     @TableId(value = "id", type = IdType.AUTO)
-    private Long id;
+    private String id;
     private String courseId;
     private String name;
 }

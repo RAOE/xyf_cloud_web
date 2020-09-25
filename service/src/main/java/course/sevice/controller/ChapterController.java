@@ -1,16 +1,16 @@
 package course.sevice.controller;
 
-import com.github.pagehelper.util.StringUtil;
 import com.google.common.collect.Maps;
 import course.server.model.Chapter;
 import course.server.service.ChapterService;
+import course.service.utils.JsonResult;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.Map;
+import java.util.Optional;
 
 
 /**
@@ -26,9 +26,10 @@ public class ChapterController {
     @PostMapping(value = "/queryAll")
     public Map<String, Object> queryAll(Integer page, Integer size) {
         Map<String, Object> resultMap = Maps.newHashMap();
-        if (page == null || page == 0 || size == null || size == 0) {
-            throw new RuntimeException("页码不正确");
+        if (size == null || size == 0) {
+            throw new RuntimeException("分页参数不正确");
         }
+        page = Optional.ofNullable(page).orElse(1);
         resultMap.put("list", chapterService.queryAll(page, size));
         return resultMap;
     }
@@ -36,5 +37,11 @@ public class ChapterController {
     @PostMapping(value = "/save")
     public void save(Chapter chapter) {
         chapterService.save(chapter);
+    }
+
+    @PostMapping(value = "/delete")
+    public JsonResult delete(String id) {
+        chapterService.deleteById(id);
+        return JsonResult.ok();
     }
 }
