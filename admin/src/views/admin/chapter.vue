@@ -113,13 +113,13 @@
                             <div class="form-group">
                                 <label class="col-sm-2 control-label">名称</label>
                                 <div class="col-sm-10">
-                                    <input class="form-control" placeholder="名称">
+                                    <input v-model="chapter.name" class="form-control" placeholder="名称">
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-sm-2 control-label">课程</label>
                                 <div class="col-sm-10">
-                                    <p class="form-control-static"></p>
+                                    <input v-model="chapter.courseId" class="form-control" placeholder="名称">
                                 </div>
                             </div>
                         </form>
@@ -143,6 +143,7 @@
         name: "chapter",
         data: function () {
             return {
+                chapter: {},
                 chapters: []
             }
         },
@@ -160,7 +161,6 @@
                     size: _this.$refs.pagination.size,
                 };
                 console.log("执行了")
-
                 _this.$ajax.post('http://localhost:9000/business/chapter/queryAll', _this.$qs.stringify(paramData)).then((response) => {
                     console.log("查询信息请求发送完成{}");
                     console.log(response.data);
@@ -178,7 +178,8 @@
             },
             save(page) {
                 let _this = this;
-                _this.$ajax.post("").then((response) => {
+                console.log(_this.chapter);
+                _this.$ajax.post("http://localhost:9000/business/chapter/save", _this.chapter).then((response) => {
                     console.log("保存成功");
                 })
             }

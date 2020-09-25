@@ -6,6 +6,7 @@ import course.server.model.Chapter;
 import course.server.service.ChapterService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -33,9 +34,7 @@ public class ChapterController {
     }
 
     @PostMapping(value = "/save")
-    public void save(Chapter chapter) {
+    public void save(@RequestBody Chapter chapter) {
         chapterService.save(chapter);
     }
-
-
 }
